@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    var translateNum = function (num) {
+        var p = 0,
+            q = 0,
+            r = 1
+        var s = num.toString()
+        for (let i = 0; i < s.length; i++) {
+            p = q
+            q = r
+            r = 0
+            r += q
+            if (i == 0) {
+                continue
+            }
+            var pre = s.split('').slice(i-1,i+1).join('')
+            console.log(pre);
+            if (pre >= '10' && pre <= '25') {
+                r = r + p
+            }
+        }
+        return r
+    };
+    console.log(translateNum(25));
+</script>
+
+</html>

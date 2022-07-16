@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    function TreeNode(val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+    var kthLargest = function (root, k) {
+        if (!root) {
+            return null
+        }
+        var res = []
+        arrSet(root, res)
+        if (k === 1) {
+            return res.slice(-k)
+        } else {
+            return res.slice(-k, -k + 1)
+        }
+    };
+
+    var arrSet = function (root, res) {
+        if (!root) {
+            return
+        }
+        res.push(root.val)
+        arrSet(root.left, res)
+        arrSet(root.right, res)
+    }
+</script>
+
+</html>

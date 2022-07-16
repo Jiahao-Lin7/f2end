@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    var strToInt = function (str) {
+        str = str.trim()
+        if (Number(str) < -Math.pow(2, 31)) {
+            return -Math.pow(2, 31)
+        }
+        if (Number(str) > Math.pow(2, 31) - 1) {
+            return Math.pow(2, 31) - 1
+        }
+        if (str === '+' || str === '-') {
+            return 0
+        }
+        console.log(str.substr(0));
+        console.log(str.substr(1).indexOf('+'));
+        console.log(str.substr(1).indexOf('-'));
+        if (str.substr(1).indexOf('+')  || str.substr(1).indexOf('-')) {
+            console.log(111111111);
+            return 0
+        }
+        var regNum = new RegExp('(\\-|\\+)|[0-9]')
+        var res = []
+        for (let k of str) {
+            if (regNum.test(k)) {
+                res.push(k)
+            } else {
+                break
+            }
+        }
+        if (res[0] === '-') {
+            res.splice(0, 1)
+            return -Number(res.join(''))
+        } else if (res[0] === '+') {
+            res.splice(0, 1)
+            return Number(res.join(''))
+        } else {
+            return Number(res.join(''))
+        }
+    };
+    console.log(strToInt("42"));
+</script>
+
+</html>

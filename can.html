@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .outer {
+    height: 100px;
+    padding-left: 100px;
+    padding-right: 200px;
+  }
+
+  .left {
+    position: relative;
+    left: -100px;
+
+    float: left;
+    margin-left: -100%;
+
+    width: 100px;
+    height: 100px;
+    background: tomato;
+  }
+
+  .right {
+    position: relative;
+    left: 200px;
+
+    float: right;
+    margin-left: -200px;
+
+    width: 200px;
+    height: 100px;
+    background: gold;
+  }
+
+  .center {
+    float: left;
+
+    width: 100%;
+    height: 100px;
+    background: lightgreen;
+  }
+
+  .sin {
+    width: 0;
+    height: 0;
+    border-top: 50px solid red;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+  }
+
+  .cos {
+    width: 0;
+    height: 0;
+    border: 100px solid transparent;
+    border-radius: 100px;
+    border-top-color: red;
+  }
+</style>
+
+<body>
+  <div class="outer">
+    <div class="center"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div class="sin"></div>
+  <div class="cos"></div>
+  <canvas id="myCanvas" width="200px" height="400px"></canvas>
+</body>
+<script type="text/javascript">
+  var nextPermutation = function (nums) {
+    let visited = []
+    let res = nums
+    res.sort((a, b) => a - b)
+    let temp = []
+    let ans = []
+    function fn(nums, i, n, visited) {
+      if (i === n) {
+        ans.push([...temp])
+      }
+      for (let j = 0; j < nums.length; j++) {
+        if (visited[j]) {
+          continue
+        }
+        visited[j] = true
+        temp.push(nums[j])
+        fn(nums, i + 1, n, visited)
+        temp.pop()
+        visited[j] = false
+      }
+      return ans
+    }
+    fn(res, 0, res.length, visited)
+    for (let i = 1; i < ans.length; i++) {
+      if (ans[i - 1].join('') === nums.join('')) {
+        return ans[i]
+      }
+    }
+  };
+  console.log(nextPermutation([1,2,3]));
+</script>
+
+</html>

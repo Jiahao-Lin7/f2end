@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    var a = Object.prototype.toString;
+
+    console.log(a.call(2));
+    console.log(a.call(true));
+    console.log(a.call('str'));
+    console.log(a.call([]));
+    console.log(a.call(function () {}));
+    console.log(a.call({}));
+    console.log(a.call(undefined));
+    console.log(a.call(null));
+
+    console.log('outer');
+
+setTimeout(() => {
+  console.log('setTimeout');
+}, 0);
+
+setImmediate(() => {
+  console.log('setImmediate');
+});
+
+</script>
+
+</html>

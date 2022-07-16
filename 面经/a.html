@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0
+        }
+        .container{
+            overflow:hidden;
+            height:200px;
+            padding:0 400px 0 200px
+        }
+        .left,.middle,.right{
+            float:left;
+            position: relative;
+            height: 200px;
+        }
+        .left{
+            margin-left: -100%;
+            left: -200px;
+            width: 200px;
+            background-color: blue;
+        }
+        .right{
+            margin-left: -400px;
+            right:-400px;
+            width: 400px;
+            background-color: aqua;
+        }
+        .middle{
+            width: 100%;
+            height: 200px;
+            background-color: blueviolet;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="middle"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+<script type="text/javascript">
+    var obj = {
+    0:'one',
+    1:'two',
+    length: 2
+};
+obj = Array.from(obj);
+for(var k of obj){
+    console.log(k)
+}
+</script>
+</html>

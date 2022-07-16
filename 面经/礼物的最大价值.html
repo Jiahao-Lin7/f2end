@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+
+</script>
+<script type="text/javascript">
+    var maxValue = function (grid) {
+        var dp = new Array(grid.length).fill(new Array(grid[0].length).fill(0))
+        console.log(dp);
+        for (let i = 0; i < grid.length; i++) {
+            for (let j = 0; grid[0].length; i++) {
+                if (i === 0 && j === 0) {
+                    dp[i][j] = grid[i][j]
+                } else if (i === 0 && j !== 0) {
+                    dp[i][j] = dp[i][j - 1] + grid[i][j]
+                } else if (i !== 0 && j === 0) {
+                    dp[i][j] = dp[i - 1][j] + grid[i][j]
+                } else {
+                    dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]) + grid[i][j]
+                }
+            }
+        }
+        return dp[dp.length - 1][dp[0].length - 1]
+    };
+    console.log(maxValue([
+  [1,3,1],
+  [1,5,1],
+  [4,2,1]
+]));
+</script>
+
+</html>

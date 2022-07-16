@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    var findNthDigit = function (n) {
+        var res = []
+        for (let i = 0; i <= n; i++) {
+            res.push(i)
+        }
+        console.log(res);
+        var s = res.join('')
+        console.log(s);
+        return Number(s.split('').slice(n)[0])
+    }
+    console.log(findNthDigit(3));
+
+</script>
+
+</html>

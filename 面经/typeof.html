@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    function deepCopy(obj) {
+        if (!obj || typeof obj !== 'object') {
+            return obj
+        }
+        let newObject = Array.isArray(obj) ? [] : {}
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                newObject[key] = typeof obj === 'object' ? deepCopy(obj[key]) : obj[key]
+            }
+        }
+        return newObject
+    }
+    var obj1 = {a: 'a', b:'b'}
+    var obj2 = deepCopy(obj1)
+    obj1.a = 'c'
+    console.log(obj1);
+    console.log(obj2);
+</script>
+
+</html>

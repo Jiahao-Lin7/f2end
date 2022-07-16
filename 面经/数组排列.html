@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    var minNumber = function (nums) {
+        nums.sort((a, b) => {
+            var a_trans = trans(a)
+            var b_trans = trans(b)
+            console.log(a_trans,'-------------')
+            console.log(b_trans,'ssssssssssss');
+            var a_sub = 0,
+                b_sub = 0
+            while (a_trans.length !== 0 || b_trans.length !== 0) {
+                a_sub = a_trans.length !== 0 ? a_trans.shift() : a_sub
+                b_sub = b_trans.length !== 0 ? b_trans.shift() : b_sub
+                if (a_sub < b_sub) {
+                    return true
+                } else if (a_sub > b_sub) {
+                    return false
+                }
+            }
+        })
+        
+        return nums.join('')
+    };
+
+    var trans = function (num) {
+        var res = []
+        while (num >= 1) {
+            res.unshift(num % 10)
+            num = Math.floor(num / 10)
+        }
+        return res
+    }
+    console.log(minNumber([3,30,34,5,9]));
+</script>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var shortestToChar = function (s, c) {
+            let index = []
+            let len = s.length
+            var res = new Array(len).fill(len)
+            for (let i = 0; i < len; i++) {
+                if (s[i] === c) {
+                    index.push(i)
+                }
+            }
+            console.log(index);
+            for (let i = 0; i < len; i++) {
+                let ans = []
+                for (let j = 0; j < index.length; j++) {
+                    ans.push = Math.abs(index[j] - i)
+                }
+                console.log(ans);
+                ans.sort((a, b) => a - b)
+                res[i] = ans[0]
+            }
+            return res
+        }
+        console.log(shortestToChar('asafsva','a'));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

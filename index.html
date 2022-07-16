@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+    .dfs{
+        width: 500px;
+        height: 500px;
+        display: flex;
+    }
+    .class1{
+        background-color: aqua;
+        height: 500px;
+        width: 100px;
+    }
+    .class2{
+        background-color:rgb(2, 54, 54);
+        height: 500px;
+        width: 500px;
+        flex-shrink: 1;
+        flex-grow: 1; 
+        margin:auto
+    }
+    .class3{
+        background-color:rgb(199, 162, 115);
+        height: 500px;
+        width: 100px;
+    }
+
+
+</style>
+
+<body>
+    <div class="dfs">
+        <div class="class1"></div>
+        <div class="class2"></div>
+        <div class="class3"></div>
+    </div>
+</body>
+<script type="text/javascript">
+    function Person(name) {
+        this.name = name
+    }
+
+    // 重写原型
+    // Person.prototype = {
+    //     getName: function () {}
+    // }
+    /*  console.log(Person.prototype.constructor);
+     console.log(Person.prototype);
+     console.log(Person.prototype.__proto__);
+     var p = new Person('hello')
+     console.log(p.__proto__ === Person.prototype) // true
+     console.log(p.constructor);
+     console.log(p.__proto__ === p.constructor.prototype) // false */
+    /* let promise = new Promise((resolve, reject) => {
+        resolve(111)
+    })
+    let p1 = promise.then(res => {
+        console.log(res)
+        return 222
+    })
+    let p2 = p1.then(res => {
+        console.log(res);
+        return new Promise((resolve, reject) => {
+            reject("error")
+        })
+    })
+    let p3 = p2.then(res => {
+        console.log(res);
+    }, err => {
+        console.log(err);
+    })
+    console.log(promise);
+    console.log(p1)
+    console.log(p2);
+    console.log(p3); */
+    async function testAsy() {
+        return 'hello world';
+    }
+    let result = testAsy();
+    async function test(){
+        let result1 = await testAsy()
+        console.log(result1)
+    }
+    test()
+    console.log(result)
+</script>
+
+</html>

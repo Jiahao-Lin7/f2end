@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .outer {
+        height: 100px;
+    }
+
+    .left {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+    }
+
+    .right {
+        height: 100px;
+        overflow: hidden;
+        background-color: blue;
+
+    }
+</style>
+
+
+<body>
+    <div class="outer">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+
+</body>
+<script type="text/javascript">
+    var n = 5
+    var m = 2
+    var res = []
+    var path = []
+    var visited = []
+    var map = new Map()
+    var cal = function (i, m, n, visited,map) {
+        if (i === m && !map.has([...path].sort((a, b) => a - b).join(''))) {
+            res.push([...path])
+            map.set(path.join(''), 1)
+            return 
+        }
+        if(i === m && map.has([...path].sort((a, b) => a - b).join(''))){
+            return
+        }
+        for (let j = 1; j <= n; j++) {
+            if (visited[j]) {
+                continue
+            }
+            visited[j] = true
+            path.push(j)
+            // console.log(path)
+            cal(i + 1, m, n, visited,map)
+            path.pop()
+            visited[j] = false
+        }
+    }
+    cal(0, m, n, visited,map)
+    console.log(res)
+</script>
+
+</html>

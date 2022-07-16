@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    var verifyPostorder = function (postorder) {
+        if (!postorder) {
+            return true
+        }
+        return verify(postorder)
+    };
+
+    var verify = function (postorder) {
+        if (postorder.length <= 1) {
+            return true
+        }
+        var index = 0
+        var root = postorder[postorder.length - 1]
+        for (let i = 0; i < postorder.length; i++) {
+            if (postorder[i] >= postorder[postorder.length - 1]) {
+                index = i
+                break
+            }
+        }
+        console.log(root,index);
+        var arrLeft = index !== 0 ? postorder.slice(0, index):[]
+        var arrRight = index < postorder.length - 2 ? postorder.slice(index,postorder.length-1):postorder.slice(index,postorder.length-1)
+        console.log(arrLeft,'lllllllllllllllll');
+        console.log(arrRight,'rrrrrrrrrrrrrrrrr');
+        if(arrLeft.length >= 1){
+            var maxLeft = arrLeft[0]
+            for (let k of arrLeft) {
+            if (k > maxLeft) maxLeft = k
+        }
+        if (maxLeft < root ) {
+            var left = verify(arrLeft)
+        } else {
+            return false
+        }
+        }else{
+            left = true
+        }
+        if(arrRight.length >= 1){
+            var minRight = arrRight[0]
+            for (let k of arrRight) {
+            if (k < minRight) minRight = k}
+        if (minRight > root ) {
+            var right = verify(arrRight)
+            console.log(right,'rrrrrrrrr');
+        } else {
+            return false
+        }
+        }else{
+            right = true
+        }
+        console.log(left,'lllllllll');
+        console.log(right,'rrrrrrrrr');
+        return left && right
+    };
+    console.log(verifyPostorder([5, 4, 3, 2, 1]));
+</script>
+
+</html>

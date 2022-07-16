@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    var MaxQueue = function () {
+        this.queue = []
+        this.maxQueue = []
+    };
+
+    /**
+     * @return {number}
+     */
+    MaxQueue.prototype.max_value = function () {
+        if (this.queue.length !== 0) {
+            return this.maxQueue[0]
+        } else {
+            return -1
+        }
+    };
+
+    /** 
+     * @param {number} value
+     * @return {void}
+     */
+    MaxQueue.prototype.push_back = function (value) {
+        while (this.maxQueue.length !== 0 && this.maxQueue[this.maxQueue.length-1] < value) {
+            this.maxQueue.pop()
+        }
+        this.maxQueue.push(value)
+        this.queue.push(value)
+        console.log(this.maxQueue,'mmmmmmmmmmmmmmm');
+    };
+
+    /**
+     * @return {number}
+     */
+    MaxQueue.prototype.pop_front = function () {
+        if (this.queue.length !== 0) {
+            if (this.queue[0] === this.maxQueue[0]) {
+                this.maxQueue.shift()
+            }
+            return this.queue.shift()
+            console.log(this.maxQueue,'mmmmmmmmmmmmmmm');
+        } else {
+            return -1
+        }
+    };
+    var a = new MaxQueue()
+    a.push_back(1)
+    a.push_back(2)
+    console.log(a.max_value());
+    a.pop_front()
+    console.log(a.max_value());
+</script>
+
+</html>

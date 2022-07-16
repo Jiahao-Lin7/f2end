@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    var movingCount = function (m, n, k) {
+        var sum = 0
+        for (let i = 0; i < m; i++) {
+            for (let j = 0; j < n; j++) {
+                let numI = i % 10 + Math.floor(i / 10)
+                let numJ = j % 10 + Math.floor(j / 10)
+                console.log(numI + ',' + numJ);
+                
+                if (numI + numJ <= k) {
+                    sum++
+                    console.log("---" + sum);
+                } else {
+                    break
+                }
+            }
+        }
+        return sum
+    };
+    movingCount(16,8,4)
+</script>
+
+</html>
